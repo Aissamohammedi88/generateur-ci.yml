@@ -72,7 +72,6 @@ git push origin main
 Le moteur est construit sur trois couches strictes :
 
     Le Scanner (Perception)
-
         Analyse package.json, pom.xml, requirements.txt, Cargo.toml.
 
         Génère un profil de stack (StackProfile en JSON).
