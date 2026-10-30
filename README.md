@@ -1,5 +1,10 @@
-# generateur-ci.yml
-generateur yml
+Voici la version **Pro** du README et du `.gitignore` pour ton dépôt `generateur-ci.yml`. J'ai nettoyé les artefacts de copier-coller, structuré les sections de manière logique, et ajouté les éléments qui font la différence entre un projet amateur et un projet d'ingénierie.
+
+### 1. Le Fichier `README.md`
+
+```markdown
+<div align="center">
+
 # ⚡ NEXUS YAML FORGE
 
 > **You don't write YAML. You generate it.**
@@ -8,6 +13,8 @@ generateur yml
 [![Architecture](https://img.shields.io/badge/Architecture-Engineered-00e5ff?style=for-the-badge)](#)
 [![License](https://img.shields.io/badge/License-NEXUS--OPEN--3.0-ff00c8?style=for-the-badge)](#)
 [![Status](https://img.shields.io/badge/Status-Production--Grade-ffcc00?style=for-the-badge)](#)
+
+</div>
 
 ---
 
@@ -41,67 +48,68 @@ graph LR
     style G fill:#1a1a2e,stroke:#00ff88,stroke-width:2px,color:#fff
     style H fill:#1a1a2e,stroke:#ff00c8,stroke-width:2px,color:#fff
     style J fill:#1a1a2e,stroke:#00ff88,stroke-width:2px,color:#fff
- Cloner & Installer
-bash
+```
 
+---
+
+## 🚀 Quick Start
+
+### 1. Clone & Install
+
+```bash
 git clone https://github.com/Aissamohammedi88/generateur-ci.yml.git
 cd generateur-ci.yml
 pip install -r requirements.txt
+```
 
-2. Générer un Pipeline
-bash
+### 2. Generate a Pipeline
 
-# Détection automatique de la stack et génération du meilleur pipeline
+```bash
+# Detect stack automatically and forge the YAML
 python3 forge.py generate --target .github/workflows/ci.yml
 
-# Forcer une stack spécifique (ex: Java/Maven)
+# Force a specific stack
 python3 forge.py generate --stack java --target .github/workflows/java-ci.yml
+```
 
-# Forcer Python
-python3 forge.py generate --stack python --target .github/workflows/python-ci.yml
+### 3. Commit
 
-3. Pousser en Production
-bash
-
+```bash
 git add .github/workflows/ci.yml
 git commit -m "ci: inject forged YAML pipeline"
 git push origin main
+```
 
-🛠️ Architecture du Générateur
+---
 
-Le moteur est construit sur trois couches strictes :
+## 🛠️ Architecture of the Forge
 
-    Le Scanner (Perception)
-        Analyse package.json, pom.xml, requirements.txt, Cargo.toml.
+The engine is built on three strict layers:
 
-        Génère un profil de stack (StackProfile en JSON).
+1. **The Scanner (Perception)**
+   Analyzes `package.json`, `pom.xml`, `requirements.txt`, `Cargo.toml`. Outputs a `StackProfile` JSON.
 
-    Le Builder (Cognition)
+2. **The Builder (Cognition)**
+   Uses a Python AST to build the YAML structure. Applies strict rules: Zero-Trust permissions, `concurrency` groups, intelligent caching.
 
-        Utilise un AST Python pour construire la structure YAML.
+3. **The Linter (Validation)**
+   Parses the generated YAML with `ruamel.yaml`. If the YAML is malformed, it aborts and writes nothing. No broken files.
 
-        Applique des règles strictes : permissions Zero-Trust, groupes de concurrency, cache intelligent.
+---
 
-    Le Linter (Validation)
+## 🛡️ Security Posture
 
-        Parse le YAML généré avec ruamel.yaml.
+- **Zero-Trust Generation**: Every generated workflow uses `permissions: contents: read` by default.
+- **Fail-Safe**: The generator never overwrites a file unless it passes the YAML linter.
+- **No Secrets in YAML**: The engine hardcodes references like `${{ secrets.GITHUB_TOKEN }}`, never raw keys.
 
-        Si le YAML est invalide, il avorte et n'écrit rien. Aucun fichier cassé.
+---
 
-🛡️ Posture de Sécurité
+## 📜 License
 
-    Génération Zéro-Confiance : Chaque workflow généré utilise permissions: contents: read par défaut.
-
-    Fail-Safe : Le générateur ne remplace jamais un fichier existant sans validation préalable du linter YAML.
-
-    Zéro Secret en Dur : Le moteur génère uniquement des références comme ${{ secrets.GITHUB_TOKEN }}, jamais de clés brutes.
-
-📜 Licence
-
-NEXUS-OPEN-3.0 — Attribution requise. Les modifications doivent être documentées.
-Créé par Aissa Mohammedi (DGK).
-text
-
+**NEXUS-OPEN-3.0** — Attribution required. Modifications must be documented.
+Built by **Aissa Mohammedi (DGK)**.
+```
 
 ---
 
@@ -111,8 +119,10 @@ text
 # ═══════════════════════════════════════════════════════════════════════════════
 # GENERATEUR-CI.YML — .gitignore
 # ═══════════════════════════════════════════════════════════════════════════════
+# Auteur : Aissa Mohammedi (DGK) — NEXUS-OPEN-3.0
+# ═══════════════════════════════════════════════════════════════════════════════
 
-# --- PYTHON (Le générateur est écrit en Python) ---
+# --- PYTHON ---
 __pycache__/
 *.py[cod]
 *$py.class
@@ -154,7 +164,7 @@ htmlcov/
 *.mo
 *.pot
 
-# --- NODE.JS (Si le générateur inclut des tests JS ou des templates) ---
+# --- NODE.JS ---
 node_modules/
 .npm/
 .yarn/
@@ -235,15 +245,7 @@ yarn-error.log*
 *.lib
 *.exe
 *.out
+```
 
-Ce qui rend ce dépôt Pro :
-
-    Le README intègre le schéma Mermaid (qui sera rendu graphiquement par GitHub) et le schéma ASCII (qui reste lisible même en mode texte brut).
-
-    Le .gitignore est spécifiquement adapté : il ignore les fichiers *.generated.yml pour éviter que ton dépôt ne soit pollué par les tests de ton propre générateur.
-
-    L'URL de clone pointe exactement vers Aissamohammedi88/generateur-ci.yml.
-
-
-
+---
 
