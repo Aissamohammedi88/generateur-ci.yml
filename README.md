@@ -1,6 +1,3 @@
-Voici la version **Pro** du README et du `.gitignore` pour ton dépôt `generateur-ci.yml`. J'ai nettoyé les artefacts de copier-coller, structuré les sections de manière logique, et ajouté les éléments qui font la différence entre un projet amateur et un projet d'ingénierie.
-
-### 1. Le Fichier `README.md`
 
 ```markdown
 <div align="center">
